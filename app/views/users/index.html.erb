@@ -1,0 +1,26 @@
+<h1 class="jumbotron">Users</h1>
+
+<%= link_to "Add New User", new_user_path %>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<% if current_user %>
+    <%= link_to "Logout", destroy_session_path %>
+<% else %>    
+    <%= link_to "Login", new_session_path %>
+<% end %>
+<hr>
+
+<% flash.each do |key, value| %>
+    <div class="alert <%= key %>"><%= value %></div>
+<% end %>
+
+<% if @users.count > 0 %>
+    <% @users.each do |user| %>
+        <h4><%= user.name %><br>
+        <small><%= user.email %></small>
+        </h4>
+        <hr>
+    <% end %>
+<% else %>
+    <h3>No Users Exist</h3>
+    <hr>
+<% end %>

@@ -1,0 +1,50 @@
+<h1 class="jumbotron">Welcome to the DTLA WDI Blog</h1>
+
+<%= link_to "Return to All Posts", posts_path %>
+
+<hr>
+<div class="row">
+<div class="col-xs-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3><%= @post.title %></h3>
+                <h6>Posted by: <%= @post.user.name %>&nbsp;&nbsp;<small><%= @post.updated_at%></small></h6>
+            </div>
+            <div class="panel-body">
+                <p><%= @post.body %></p>
+            </div>
+            <div class="panel-footer">
+                <h4>Comments</h4>
+                <% if @post.comments.count > 0 %>
+                    <% @post.comments.each do |comment| %>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p><%= comment.body %></p>
+                                <h5><%= comment.user.name %>&nbsp;&nbsp;<small><%= comment.updated_at %></small></h5>
+                            </div>
+                        </div>
+                    <% end %>
+                <% else %>
+            <p>No Comments Yet</p>
+        <% end %>
+        
+        </div>
+    </div>
+</div>
+    <div class="col-xs-8">
+        <div class="embed-container"><%= embed(@post.url) %>
+        </div>
+    </div>
+</div>
+
+<hr>
+<% if current_user %>
+    <%= form_for @comment, url: create_comment_path do |f| %>
+        <%= hidden_field_tag :post_id, @post.id %>
+        <div class="form-group">
+            <%= f.label :body, "Comment" %>
+            <%= f.text_area :body, class: "form-control" %>
+        </div>
+        <%= f.submit "Add Comment", class: "btn btn-default" %>
+    <% end %>
+<% end %>

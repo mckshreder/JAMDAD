@@ -1,0 +1,31 @@
+<h1 class="jumbotron">Enter New Post</h1>
+
+<% flash.each do |key, value| %>
+    <div class="<%= key %>"><%= value %></div>
+<% end %>
+
+<%= form_for @posts, url: create_post_path do |f| %>
+
+    <div class="form-group">
+    <%= f.label 'Song title' %>
+    <%= f.text_field :title, class: "form-control"%>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :artist %>
+    <%= f.text_field :artist, class: "form-control"%>
+    </div>
+
+    <div class="form-group">
+    <%= f.label 'Paste YouTube Url' %>
+    <%= f.url_field :url, class: "form-control" %>
+    </div>
+    
+    <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: "form-control" %>
+    </div>
+
+    <%= f.submit "Post", class: "btn btn-primary" %>
+
+<% end %>

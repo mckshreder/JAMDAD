@@ -1,0 +1,47 @@
+<h1 class="jumbotron">Welcome to the JamDAD</h1>
+
+<% if current_user %>
+    <%= link_to "Add New Post", new_post_path %>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <%= link_to "Logout", destroy_session_path %>
+<% else %>
+    <%= link_to "Login", new_session_path %>
+<% end %>
+<hr>
+
+
+<% if @posts.count > 0 %>
+    <% @posts.each do |post| %>
+
+    <div class="col-xs-4">     
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h5><%= "Song: " + post.title %></h5>
+                <h4><%= "Artist: " + post.artist %></h4>
+
+                <div class="embed-container"><%= embed(post.url) %></div>
+                <h6>Posted by: <%= post.user.name %>&nbsp;&nbsp;<small><%= post.updated_at%></small></h6>
+            </div>
+            <div class="panel-body">
+                <p><%= post.body %></p>
+
+            </div>
+            <div class="panel-footer">
+                <% if current_user
+                    add = "/Add"
+                else
+                    add = ""
+                end %>
+
+                <%= link_to "View#{add} Comments", post_path(id: post.id) %>
+            </div>
+        </div>
+    </div>
+
+    <% end %>
+<% else %>
+    <h2>No Posts Exist</h2>
+<% end %>
+
+
+

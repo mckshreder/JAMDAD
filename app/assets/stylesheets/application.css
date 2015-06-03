@@ -43,3 +43,19 @@
 }
 
 
+
+@font-face {
+    font-family: 'daddy';
+    src:url('fonts/Microgramma-D-OT-Bold-Extended_30403.eot');
+    src:url('fonts/Microgramma-D-OT-Bold-Extended_30403.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Microgramma-D-OT-Bold-Extended_30403.ttf') format('truetype'),
+        url('fonts/Microgramma-D-OT-Bold-Extended_30403.woff') format('woff'),
+        url('fonts/Microgramma-D-OT-Bold-Extended_30403.svg#icofonts') format('svg');
+    font-weight: normal;
+    font-style: normal;
+} 
+
+
+
+
+

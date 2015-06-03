@@ -14,8 +14,8 @@ class PostsController < ApplicationController
     end
 
     def create
-        post = Post.new(post_params)
-        if post.valid? 
+        @post = Post.new(post_params)
+        if @post.valid? 
             current_user.posts.push post
             current_user.save
             redirect_to posts_path
@@ -24,6 +24,29 @@ class PostsController < ApplicationController
             redirect_to new_post_path
         end
     end
+
+def edit
+    @post = Post.find(params[:id])
+end
+
+def update
+    @post = Post.find(params[:id])
+    if @post.update_attributes(params.require(:post).permit(:title,:body,:url,:artist))
+        redirect_to posts_path
+    else 
+        render :edit
+    end
+end
+
+def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    respond_to do |format|
+      format.html { redirect_to posts_path, notice: 'Animal was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+    
+end
 
 
 private

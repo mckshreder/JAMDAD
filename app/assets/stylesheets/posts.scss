@@ -2,3 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'bootstrap';
+
+.title_link{
+  color: black;
+  	&:hover {
+         color: grey;
+       }
+  text-align: right;
+
+}
+
+.panel-default > .panel-heading {
+  background-color: black;
+}
+
+body{
+  font-family: 'daddy';
+}

@@ -1,9 +1,9 @@
-<h1 class="jumbotron">Welcome to the DTLA WDI Blog</h1>
 
-<%= link_to "Return to All Posts", posts_path %>
+
+<%= link_to "Return to All Posts",  posts_path, :class => "title_link" %> <%= link_to 'Destroy this post', @post, :class => "title_link_right", method: :delete, data: { confirm: 'Are you sure?' } %>
 
 <hr>
-<%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+
 <div class="row">
 <div class="col-xs-4">
         <div class="panel panel-default">

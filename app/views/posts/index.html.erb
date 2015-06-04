@@ -1,12 +1,17 @@
 <h1 class="jumbotron">Welcome to the JamDAD</h1>
 
+<% flash.each do |key, value| %>
+    <div class="<%= key %>"><%= value %></div>
+<% end %>
+
+
 <% if current_user %>
     <%= link_to "Add New Post", new_post_path %>
     &nbsp;&nbsp;|&nbsp;&nbsp;
     <%= link_to "Logout", destroy_session_path %>
 <% else %>
     <%= link_to "Login", new_session_path %>
-<% end %>
+<% end %> 
 <hr>
 
 

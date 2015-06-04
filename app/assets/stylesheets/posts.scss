@@ -11,11 +11,18 @@
   text-align: right;
 
 }
+.title_link_right{
+  color: black;
+  	&:hover {
+         color: grey;
+       }
+  text-align: right;
+  float: right;
+
+}
 
 .panel-default > .panel-heading {
   background-color: black;
 }
 
-body{
-  font-family: 'daddy';
-}
+

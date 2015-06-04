@@ -1,8 +1,16 @@
 <h1 class="jumbotron">Enter New User Info</h1>
 
-<% flash.each do |key, value| %>
-    <div class="<%= key %>"><%= value %></div>
-<% end %>
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this pastry from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 <%= form_for @user, url: create_user_path do |f| %>
 
@@ -27,3 +35,4 @@
     <%= f.submit "Register", class: "btn btn-primary" %>
 
 <% end %>
+<hr>

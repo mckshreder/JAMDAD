@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
- 	
+ 	 before_action :authorize
  	def index
         @posts = Post.all
     end
@@ -14,16 +14,22 @@ class PostsController < ApplicationController
     end
 
     def create
-        @post = Post.new(post_params)
-        if @post.valid? 
-            current_user.posts.push post
-            current_user.save
-            redirect_to posts_path
-        else
-            flash["alert-warning"] = "Sorry, post not created"
-            redirect_to new_post_path
-        end
+        @posts = Post.new(post_params)
+            
+            
+    respond_to do |format|
+      if current_user.posts.push @posts
+        format.html { redirect_to posts_path, notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: @posts }
+
+      else
+        format.html { render :new }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
+end
+
+            
 
 def edit
     @post = Post.find(params[:id])
@@ -42,7 +48,7 @@ def destroy
     @post = Post.find(params[:id])
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_path, notice: 'Animal was successfully destroyed.' }
+      format.html { redirect_to posts_path, notice: 'post was successfully destroyed.' }
       format.json { head :no_content }
     end
     

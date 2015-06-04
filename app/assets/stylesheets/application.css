@@ -14,6 +14,7 @@
  *= require_self
  */
 
+
  .dropdown-menu{
  	text-align: center;
  }
@@ -48,6 +49,8 @@
 .container-fluid, .navbar .nav-links {
 font-family: 'Michroma', sans-serif;
 }
+
+
 
 
 

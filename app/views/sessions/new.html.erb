@@ -15,7 +15,7 @@
     <%= f.label :password %>
     <%= f.password_field :password, class: "form-control" %>
     </div>
-
+    
     <%= f.submit "Log In", class: "btn btn-primary" %>
-
+    <%= link_to "Create New Account", new_user_path, class: "btn btn-primary" %>
 <% end %>

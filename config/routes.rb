@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     get "/users" => "users#index", as: :users
     get "/users/new" => "users#new", as: :new_user
     post "/users" => "users#create", as: :create_user
+    get "/users/:id" => "users#show", as: :user_profile
     get "users/:id/edit" => "users#edit", as: :edit_users
     patch "users/:id" =>"users#update", as: :update_user
 	delete "users/:id" => "users#destroy"
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
     delete "posts/:id" => "posts#destroy"
 
     post "/posts/:id/comments" => "comments#create", as: :create_comment
+    delete "comments/:id" => "comments#destroy", as: :delete_comment
 
     
 

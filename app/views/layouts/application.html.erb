@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Jam DADDY</title>
+  <title>DadMusic</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -21,7 +21,7 @@
         <span class="icon-bar"></span>
 
       </button>
-      <a class="navbar-brand" href="/">JamDad</a>
+      <a class="navbar-brand" href="/">DadMusic</a>
     </div>
    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
@@ -33,11 +33,20 @@
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"> Account </span><span class="caret"></span>
           <ul class="dropdown-menu" role="menu">
+            
             <li><% if current_user %>
-						<%= link_to "Hello, #{current_user.name}", edit_users_path(current_user) %>
+						<%= link_to "Hello, #{current_user.name}", user_profile_path(current_user) %>
 					<% else %>
 							<%= link_to ""%>
 					<% end %></li>	
+            
+            <li><% if current_user %>
+            <%= link_to "Edit Account", edit_users_path(current_user) %>
+          <% else %>
+              <%= link_to ""%>
+          <% end %></li>  
+
+
             <li>
            	 		<% if current_user %>
 							<%= link_to "Log out", destroy_session_path %>

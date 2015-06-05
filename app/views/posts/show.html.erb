@@ -21,7 +21,7 @@
                     <% @post.comments.each do |comment| %>
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <p><%= comment.body %></p>
+                                <p><%= comment.body %></p> <%= link_to 'Destroy this comment', delete_comment_path(comment), :class => "title_link_right", method: :delete, data: { confirm: 'Are you sure?' } %>
                                 <h5><%= comment.user.name %>&nbsp;&nbsp;<small><%= comment.updated_at %></small></h5>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
             <%= f.text_area :body, class: "form-control" %>
         </div>
         <%= f.submit "Add Comment", class: "btn btn-default" %>
-
+        
 
     <% end %>
 <% end %>

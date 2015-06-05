@@ -1,27 +1,27 @@
-<h1 class="jumbotron">Welcome to the DadMusic</h1>
+<div class="row">
+<div class="col-xs-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+    
+    <%= form_for @user, url: user_profile_path  do |f| %>
 
-<% flash.each do |key, value| %>
-    <h4><%= value %></h4>
-<% end %>
+              <h4><%= @user.name %></h4> 
+               
+            </div>
+            <div class="panel-body">
+                <p><%= @user.email %></p> 
+            </div>
+        <% end %>
+    </div>
+</div>
+    
 
-<hr>
-<% if current_user %>
-    <%= link_to "Add New Post", new_post_path %>
-    &nbsp;&nbsp;|&nbsp;&nbsp;
-    <%= link_to "Logout", destroy_session_path %>
-<% else %>
-    <%= link_to "Login", new_session_path %>
-<% end %> 
-<hr>
-
-
-<% if @posts.count > 0 %>
-    <% @posts.each do |post| %>
-
-    <div class="col-xs-4">     
+<% @posts.each do |post| %>
+    
+    <div class="col-xs-8">
         <div class="panel panel-default">
             <div class="panel-heading">             
-                <h4><%= link_to post.title, post_path(id: post.id), :class => "title_link" %><h4>
+                <h4><%= link_to post.title, post_path(id: post.id), :class => "title_link" %></h4>
                 
                 <div class="embed-responsive embed-responsive-16by9"><%= embed(post.url) %></div>
                 
@@ -44,11 +44,5 @@
             </div>
         </div>
     </div>
-
     <% end %>
-<% else %>
-    <h2>No Posts Exist</h2>
-<% end %>
-
-
-
+</div>

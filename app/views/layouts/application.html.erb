@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-  <link href='http://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'>
 </head>
 <body class="container-fluid">
 <nav class="navbar navbar-default navbar-inverse">
@@ -38,7 +38,13 @@
 						<%= link_to "Hello, #{current_user.name}", user_profile_path(current_user) %>
 					<% else %>
 							<%= link_to ""%>
-					<% end %></li>	
+					<% end %></li>
+
+          <li><% if current_user %>
+            <%= link_to "Profile", user_profile_path(current_user) %>
+          <% else %>
+              <%= link_to ""%>
+          <% end %></li>	
             
             <li><% if current_user %>
             <%= link_to "Edit Account", edit_users_path(current_user) %>

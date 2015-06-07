@@ -13,7 +13,9 @@
  *= require_tree .
  *= require_self
  */
-
+.navbav {
+  margin-bottom:0;
+}
 
  .dropdown-menu{
  	text-align: center;
@@ -76,6 +78,46 @@ font-family: 'Michroma', sans-serif;
   background: black;
 }
 
+
+/*@media screen and (max-width: 568px) {
+
+.feed_container{
+  padding-left: 20px;
+  }
+}*/
+
+@media screen and (max-width: 600px) {
+
+.feed_post{
+  height:100%;
+  width:100%;
+  min-width: 325px;
+  min-height: 310px;
+  margin-left: 0;
+margin:0;
+
+  }
+}
+@media screen and (max-width: 375px) {
+
+.navbar{
+  min-width: 325px;
+  padding: 0;
+  
+  }
+}
+
+@media screen and (max-width: 375px) {
+
+body.container-fluid{
+  width: 100%;
+  padding: 0;
+  
+  }
+}
+
+
+
 /*this below is for the background gipf.*/
 /*body.container-fluid{
 
@@ -84,6 +126,7 @@ font-family: 'Michroma', sans-serif;
   background-repeat: repeat;
 }
 */
+
 
 
 

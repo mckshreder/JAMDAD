@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'bootstrap';
 
+
+
 .title-link{
   color: #1a1c21;
   	&:hover {
@@ -25,14 +27,14 @@
 
 }
 
+
+
 .artist-link{
   color:rgb(0, 136, 255);
-    &:hover {
-         color: #337ab7;
-       }
+    
   text-align: left;
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 14px;
+  line-height: 25px;
   font-weight: 700;
   padding-left: 10px; 
   
@@ -42,11 +44,12 @@
 
 
 
+
 .panel-default > .panel-heading {
   background-color: black;
 }
 
-.line-break {
+hr.line-break {
   margin-top: 12px;
   margin-bottom: 5px;
   border-top: 1px solid #eee
@@ -68,8 +71,8 @@
 }
 
 .user-post-photo_tag{
-  border-radius: 15px;
-  border: 1px solid black;
+  border-radius: 12px;
+  border: 1px solid white;
 
 }
 
@@ -103,5 +106,103 @@
 
 }
 
+
+.video-title-link{
+  color: #1a1c21;
+    
+  text-align: left;
+  font-size: 3em;
+  line-height: 18px;
+  font-weight: 700;
+  width: 50%;
+  padding-top: 10px;
+  display: inline-block;
+ 
+
+}
+
+
+
+.video-artist-link  {
+  color: rgb(0, 136, 255);
+    
+  width: 49%;
+  font-size: 2em;
+  line-height: 18px;
+  font-weight: 700;
+  /*padding-right: 10px;*/
+ 
+  text-align: right;
+  padding-top: 15px;
+  display: inline-block;
+  
+
+  
+
+  
+
+}
+
+
+
+
+.video-nav{
+  border-bottom: 1px solid #eee;
+
+
+padding-right: 10px; 
+padding-left:10px;
+
+
+}
+
+.video-info-container-header{
+  border-bottom: 2px solid black;
+  padding-right: 10px; 
+  padding-left:10px;
+  padding-bottom: 5px;
+  
+  width:100%;
+  
+
+  
+
+}
+
+.video-container{
+  
+  width: 65%;
+  vertical-align: center;
+
+}
+
+.video-comments-container{
+  width:25%;
+ 
+  
+}
+
+@media screen and (max-width: 568px) {
+  .video-title-link {
+    font-size: .8em;
+    width: 60%;
+    
+  }
+}
+  @media screen and (max-width: 568px) {
+  .video-artist-link  {
+    font-size: .6em;
+    width: 35%;
+    
+  }
+}
+
+ @media screen and (max-width: 375px) {
+
+h1{
+  font-size: .5em;
+
+  }
+}
 
 

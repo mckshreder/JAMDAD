@@ -1,30 +1,82 @@
 
 
-<%= link_to "Return to All Posts",  posts_path, :class => "title_link" %> <%= link_to 'Destroy this post', @post, :class => "title_link_right", method: :delete, data: { confirm: 'Are you sure?' } %>
 
-<hr>
 
-<div class="row">
-<div class="col-xs-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3><%= @post.title %></h3>
+
+
+         
+            
+
+
+
+<div class ="video-info-container-header">
+            
+         
+
+                <%= content_tag :div, class: "video-title-link" do -%>
+                    <%= @post.title %>
+                <% end -%>
+                <%= content_tag :div, class: "video-artist-link" do -%>
+                    <%= @post.artist %>
+                <% end -%>  
+               
+          
+</div>
+
+
+<div class = "video-container">
+          
+        <div class="embed-responsive embed-responsive-16by9"><%= embed(@post.url) %>
+        </div>
+
+        <div class = "video-nav">
+                <p><%= link_to "Return to All Posts",  posts_path, :class => "title_link" %> <%= link_to 'Destroy this post', @post, :class => "title_link_right", method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %></p> 
+        </div>  
+        
+
+
+           
+            <div class="artist-link">
                 
+                <p>Posted by: <%= @post.user.name + "  " + @post.body%> <small><%= @post.updated_at%></small></p>
             </div>
-            <div class="panel-body">
-                <h4><%= @post.body %></h4>
-                <p>Posted by: <%= @post.user.name %>&nbsp;&nbsp;<small><%= @post.updated_at%></small></p>
-            </div>
-            <div class="panel-footer">
+            <div class="comments-tag-on-feed">
                 <h4>Comments</h4>
                 <% if @post.comments.count > 0 %>
                     <% @post.comments.each do |comment| %>
-                        <div class="panel panel-default">
-                            <div class="panel-body">
+                        
+                           
+                                <p><%= comment.body %></p> <%= link_to 'Destroy this comment', delete_comment_path(comment), :class => "title_link_right", method: :delete, data: { confirm: 'Are you sure?' } %>
+                                <h5><%= comment.user.name %>&nbsp;&nbsp;<small><%= comment.updated_at %></small></h5>
+                            
+                        
+                    <% end %>
+                <% else %>
+            <p>No Comments Yet</p>
+        <% end %>
+        
+        </div>
+
+    
+
+   
+        
+        <!--  <div class = "post-photo-tag">
+                    <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 21, :height => 21, :crop => :fill, class: "user-post-photo_tag") %><%= "  " %><%= @post.user.name %>
+            </div>  -->
+
+        
+
+        <div class="comments-tag-on-feed">
+                <h4>Comments</h4>
+                <% if @post.comments.count > 0 %>
+                    <% @post.comments.each do |comment| %>
+                        
+                            <div>
                                 <p><%= comment.body %></p> <%= link_to 'Destroy this comment', delete_comment_path(comment), :class => "title_link_right", method: :delete, data: { confirm: 'Are you sure?' } %>
                                 <h5><%= comment.user.name %>&nbsp;&nbsp;<small><%= comment.updated_at %></small></h5>
                             </div>
-                        </div>
+                        
                     <% end %>
                 <% else %>
             <p>No Comments Yet</p>
@@ -32,13 +84,9 @@
         
         </div>
     </div>
-</div>
-    <div class="col-xs-8">
-        <div class="embed-container"><%= embed(@post.url) %>
-        </div>
-    </div>
-</div>
 
+
+<!-- end of row -->
 <hr>
 <% if current_user %>
     <%= form_for @comment, url: create_comment_path do |f| %>

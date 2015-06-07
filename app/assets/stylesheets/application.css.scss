@@ -44,12 +44,46 @@
 }
 
 
-
+/*.feed_container{
+  text-align: center;
+}*/
 
 .container-fluid, .navbar .nav-links {
 font-family: 'Michroma', sans-serif;
 }
 
+.feed_row {
+  width: 100%;
+ 
+ /* text-align: center;*/
+}
+
+.feed_post {
+    border: 1px solid black;
+    background: white;
+    width: 300px; 
+    height: 270px;
+    display: inline-block;
+    outline: none;
+    margin: 5px;
+
+    
+   
+}
+
+.landing-page {
+
+  background: black;
+}
+
+/*this below is for the background gipf.*/
+/*body.container-fluid{
+
+  background-image: url(image-path("giphy.gif"));
+  background-size: 100%;
+  background-repeat: repeat;
+}
+*/
 
 
 

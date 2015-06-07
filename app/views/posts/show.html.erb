@@ -9,7 +9,16 @@
 
 
 
-<div class ="video-info-container-header-top">
+
+
+
+<div class = "video-container">
+          
+        <div class="embed-responsive embed-responsive-16by9"><%= embed(@post.url) %>
+        </div>
+</div>
+
+       <div class ="video-info-container-header-top">
             
          
 
@@ -23,27 +32,20 @@
           
 </div>
 
-
-<div class = "video-container">
-          
-        <div class="embed-responsive embed-responsive-16by9"><%= embed(@post.url) %>
-        </div>
-</div>
-
-       <!--  <div class ="video-info-container-header-bottom">
-                
-               
-        </div> -->
-
 <div class = "video-container">
         <div class = "video-nav">
-                <p><%= link_to "Return to All Posts",  posts_path, :class => "title_link" %> <%= link_to 'Destroy this post', @post, :class => "title_link_right", method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %></p> 
+                <p><%= link_to "Return to All Posts",  posts_path, :class => "title_link" %>
+
+                <span class = "title_link_right">Posted by: <%= @post.user.name + "  " + @post.body%><small><%= @post.updated_at%></small>
+                </span> 
+                </p>
         </div>  
         
 </div>
 
            
             <div class="artist-link">
+            <%= link_to 'Destroy this post', @post, :class => "title_link_right", method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %>
                 
                 <p>Posted by: <%= @post.user.name + "  " + @post.body%> <small><%= @post.updated_at%></small></p>
             </div>

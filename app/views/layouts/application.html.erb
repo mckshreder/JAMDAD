@@ -10,8 +10,12 @@
   <link href='https://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'>
 </head>
 <body class="container-fluid" >
-<nav class="navbar navbar-default navbar-inverse">
-  <div class="container-fluid">
+<!--  -->
+
+  <!-- the start of the new nav bar -->
+
+  <nav class="dad-navbar">
+  
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -26,46 +30,61 @@
    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
        
-        <li><%= link_to  " Discover", posts_path, class: "glyphicon glyphicon-headphones" %></li>
+        <li><%= link_to  "Discover", posts_path %></li>
         
-        <li><%= link_to  " Share", new_post_path, class: "glyphicon glyphicon-music" %></li>
         
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"> Account </span><span class="caret"></span>
-          <ul class="dropdown-menu" role="menu">
-            
-            <li><% if current_user %>
-						<%= link_to "Hello, #{current_user.name}", user_profile_path(current_user) %>
-					<% else %>
-							<%= link_to ""%>
-					<% end %></li>
+      <li><% if current_user %>
+        <%= link_to  "Create", new_post_path %>
+        <% else %> 
 
-          <li><% if current_user %>
-            <%= link_to "Profile", user_profile_path(current_user) %>
-          <% else %>
-              <%= link_to ""%>
-          <% end %></li>	
+        <% end %>
+      </li>
+
+      <li><% if current_user %>
+        <%= link_to  "DadRadar", users_path %>
+        <% else %> 
+        <% end %>
+      </li>
+        
+        <li><% if current_user %>
+          <%= link_to "#{current_user.name.split.first}", user_profile_path(current_user) %>
+          <% else %> 
+          <% end %>
+        </li> 
+
+
+
+
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-cog" aria-hidden="true"> </span><span class="caret"></span>
+          <ul class="dropdown-menu" role="menu">
             
             <li><% if current_user %>
             <%= link_to "Edit Account", edit_users_path(current_user) %>
           <% else %>
-              <%= link_to ""%>
+              
           <% end %></li>  
 
 
             <li>
-           	 		<% if current_user %>
-							<%= link_to "Log out", destroy_session_path %>
-					<% else %>
-							<%= link_to "Login", new_session_path %>
-					<% end %></li>
-            <li><%= link_to "Create New Account", new_user_path %></li>
+                <% if current_user %>
+              <%= link_to "Log out", destroy_session_path %>
+          <% else %>
+              <%= link_to "Login", new_session_path %>
+          <% end %></li>
+
+          <li><% if current_user %>
+            
+          <% else %>
+               <li><%= link_to "Create New Account", new_user_path %></li>
+          <% end %></li> 
+           
           
           </ul>
         </li>
       </ul>
-	</div>
-   </div>
+  </div>
+   
   </nav>
 
 <%= yield %>

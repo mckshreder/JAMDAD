@@ -1,4 +1,4 @@
-<h1>Welcome to DadMusic</h1>
+
 
 <% flash.each do |key, value| %>
     <h4><%= value %></h4>
@@ -49,7 +49,7 @@
                 <%= link_to "View#{add} Comments", post_path(id: post.id), :class => "comment-link-color-change" %><%= "  (" + post.comments.count.to_s + ")"%>
             </div>
 
-            <div class= "time-ago-tag"><span class="glyphicon glyphicon-time" aria-hidden="false"></span><%= "  " +distance_of_time_in_words(Time.now, post.updated_at) + " ago"  %>
+            <div class= "time-ago-tag"><span class="glyphicon glyphicon-time" aria-hidden="false"></span><%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, post.updated_at)) + " ago"  %>
             </div>
         
         </div>

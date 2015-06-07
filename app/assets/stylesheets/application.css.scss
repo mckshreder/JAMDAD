@@ -17,13 +17,30 @@
 body.container-fluid{
   width: 100%;
   padding: 0;
+  background:  linear-gradient(
+    to bottom,
+    #ECECEC,
+    #fff
+    )
   
   }
 
-nav.navbav{
-  margin-bottom:0;
-  border-radius: 0px;
+.dad-navbar{
+border-bottom: 1px solid black;
+background-color: white;
 }
+
+
+a.navbar-brand {
+  color: black;
+  font-size: 2.2em;
+  line-height: 18px;
+  font-weight: 700;
+  
+  
+}
+
+
 
  .dropdown-menu{
  	text-align: center;
@@ -64,6 +81,8 @@ font-family: 'Michroma', sans-serif;
 
 .feed_row {
   width: 100%;
+  margin-left: 5px;
+  margin-top:5px;
  
  /* text-align: center;*/
 }
@@ -71,11 +90,12 @@ font-family: 'Michroma', sans-serif;
 .feed_post {
     border: 1px solid black;
     background: white;
-    width: 404px; 
-    height: 335px;
+    width: 32.15%; 
+    height: 337px;
     display: inline-block;
     outline: none;
     margin: 5px;
+
 
     
    
@@ -84,6 +104,14 @@ font-family: 'Michroma', sans-serif;
 .landing-page {
 
   background: black;
+}
+span.glyphicon.glyphicon-cog{
+  width: 20px;
+  
+}
+
+ul.dropdown-menu{
+  text-align: right;
 }
 
 

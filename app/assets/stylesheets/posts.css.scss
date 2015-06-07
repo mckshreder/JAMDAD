@@ -107,14 +107,21 @@ hr.line-break {
 }
 
 
+.video-container{
+  
+  width: 70%;
+  vertical-align: center;
+  margin-left: 15%;
+}
+
 .video-title-link{
   color: #1a1c21;
     
   text-align: left;
-  font-size: 3em;
+  font-size: 1.8em;
   line-height: 18px;
   font-weight: 700;
-  width: 50%;
+  width: 69%;
   padding-top: 10px;
   display: inline-block;
  
@@ -126,13 +133,14 @@ hr.line-break {
 .video-artist-link  {
   color: rgb(0, 136, 255);
     
-  width: 49%;
-  font-size: 2em;
+  width: 30%;
+  font-size: 1.4em;
   line-height: 18px;
   font-weight: 700;
   /*padding-right: 10px;*/
  
   text-align: right;
+  
   padding-top: 15px;
   display: inline-block;
   
@@ -156,25 +164,37 @@ padding-left:10px;
 
 }
 
-.video-info-container-header{
-  border-bottom: 2px solid black;
+.video-info-container-header-top{
+  border-bottom: 3px solid black;
   padding-right: 10px; 
   padding-left:10px;
+  padding-bottom: 6px;
+  
+  
+  width: 70%;
+  margin-left: 15%;
+
+  
+
+}
+
+
+.video-info-container-header-bottom{
+  border-top: 3px solid black;
+  padding-right: 10px; 
+  
   padding-bottom: 5px;
-  
-  width:100%;
-  
+  text-align: right;
+ 
+  width: 70%;
+ 
+  margin-left: 15%;
 
   
 
 }
 
-.video-container{
-  
-  width: 65%;
-  vertical-align: center;
 
-}
 
 .video-comments-container{
   width:25%;

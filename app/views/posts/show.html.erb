@@ -9,14 +9,14 @@
 
 
 
-<div class ="video-info-container-header">
+<div class ="video-info-container-header-top">
             
          
 
                 <%= content_tag :div, class: "video-title-link" do -%>
                     <%= @post.title %>
                 <% end -%>
-                <%= content_tag :div, class: "video-artist-link" do -%>
+                <%= content_tag :div, class: "video-artist-link" do -%> 
                     <%= @post.artist %>
                 <% end -%>  
                
@@ -28,12 +28,19 @@
           
         <div class="embed-responsive embed-responsive-16by9"><%= embed(@post.url) %>
         </div>
+</div>
 
+       <!--  <div class ="video-info-container-header-bottom">
+                
+               
+        </div> -->
+
+<div class = "video-container">
         <div class = "video-nav">
                 <p><%= link_to "Return to All Posts",  posts_path, :class => "title_link" %> <%= link_to 'Destroy this post', @post, :class => "title_link_right", method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %></p> 
         </div>  
         
-
+</div>
 
            
             <div class="artist-link">

@@ -14,35 +14,140 @@
         <% end %>
     </div>
 </div>
-    
+  </div>  
+
 
 <% @posts.each do |post| %>
     
-    <div class="col-xs-8">
-        <div class="panel panel-default">
-            <div class="panel-heading">             
-                <h4><%= link_to post.title, post_path(id: post.id), :class => "title_link" %></h4>
-                
-                <div class="embed-responsive embed-responsive-16by9"><%= embed(post.url) %></div>
-                
-                <h6><%= "Artist: " + post.artist %></h6>
-                
-                <h6>Posted by: <%= post.user.name %>&nbsp;&nbsp;<small><%= post.updated_at%></small></h6>
-            </div>
-            <div class="panel-body">
-                <p><%= post.body %></p>
+    <div class = "video-container">
+          
+        <div class="embed-responsive embed-responsive-16by9"><%= embed(post.url) %>
+        </div>
 
-            </div>
-            <div class="panel-footer">
-                <% if current_user
-                    add = "/Add"
-                else
-                    add = ""
-                end %>
 
-                <%= link_to "View#{add} Comments", post_path(id: post.id) %>
+       <div class ="video-info-container-header-top">
+            
+         
+
+                <%= content_tag :div, class: "video-title-link" do -%>
+                    <%= post.title %>
+                <% end -%>
+                <%= content_tag :div, class: "video-artist-link" do -%> 
+                    <%= post.artist %>
+                <% end -%>  
+               
+          
+    </div>
+    <div class = "video-poster">
+                <span>Posted by: 
+                <%= link_to post.user.name ,  user_profile_path(post.user_id), :class => "title_link" %>
+                </span>
+
+                <small class = "title_link_right"><span class="glyphicon glyphicon-time" aria-hidden="false"></span><%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, post.updated_at)) + " ago"  %></small>
+                
             </div>
         </div>
-    </div>
-    <% end %>
+
+    <div class = "video-container">
+        <div class = "video-nav">
+            
+    
+
+
+    <h4>Comments</h4>
+    <div class="video-comments-container">
+                
+                <% if post.comments.count > 0 %>
+                    <% post.comments.each do |comment| %>
+                        
+                        <div class = "comment-user-name-tag">
+                                <%= link_to post.user.name ,  user_profile_path(post.user_id)%>
+                        </div>
+
+                            <div class= "comment-time-ago-tag">                        
+                                <span class="glyphicon glyphicon-time" aria-hidden="false"></span><%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, comment.updated_at)) + " ago"  %>
+                            </div>
+
+
+                                <hr class = "comment-line-break-top">
+                                
+                        <div class= "comment-photo">
+                            <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 21, :height => 21, :crop => :fill, class: "comment-user-post-photo_tag") %>
+                        </div>
+                            <div class = "comment-video-body">
+                                <%= comment.body %>
+                            </div>
+                        
+
+                                <%= link_to 'Delete Comment', delete_comment_path(comment), :class => "comment_title_link_right", method: :delete, data: { confirm: 'Are you sure?' } %>
+
+                        <hr class = "comment-line-break">
+          
+                    <% end %>
+                <% else %>
+            <p>No Comments Yet</p>
+        <% end %>
+        
+
+
+        </div>
+<div class = "video-comment-form">
+                        
+            <%= form_for @comment, url: create_comment_path do |f| %>
+                <%= hidden_field_tag :post_id, post.id %>
+                    <div class="form-group">
+                        
+                        <%= f.text_area :body, class: "form-control" %>
+                    <%= f.submit "Add Comment", class: "submit-button" %>
+                    </div>
+                
+            <% end %>
+            </div>
+        
 </div>
+
+      
+
+<div class="comment_feed_container">
+<h4 class = "more_music">More Music &nbsp;&nbsp;<small>(scroll)</small></h4>
+<div class="comment_feed_row">
+    <% if @posts.count > 0 %>
+    <% @posts.each do |post| %>
+      
+        <div class="comment_feed_post">
+                        
+                            
+                
+                <div class="embed-responsive embed-responsive-16by9"><%= embed(post.url) %></div>
+
+
+                <h4><%= link_to post.title, post_path(id: post.id), :class => "title-link" %></h4>
+        
+                <div class = "artist-link"><%= post.artist %>
+            
+                </div>
+
+                <hr class = "line-break">
+
+            
+
+            <div class= "time-ago-tag"><span class="glyphicon glyphicon-time" aria-hidden="false"></span><%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, post.updated_at)) + " ago"  %>
+            </div>
+        
+        </div>
+        
+    <% end %>
+    </div>
+</div>
+
+
+
+
+</div> 
+
+
+<% else %>
+    <h2>No Posts Exist</h2>
+<% end %>
+    <% end %>
+

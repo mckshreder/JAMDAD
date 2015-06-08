@@ -1,4 +1,6 @@
-<h1 class="jumbotron">Edit User Info/Password</h1>
+<div class = "video-container-create">
+<div class="jumbotron"><h1>DadMusic.</h1> <h3>Edit User Info/Password</h3></div>
+
 
 <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -33,7 +35,8 @@
     <%= f.password_field :password_confirmation, class: "form-control" %>
     </div>
     <br>
-    <%= f.submit "Update Info", class: "btn btn-primary" %>
+    <%= f.submit "Update Info", class: "submit-button-create" %>
 
 <% end %>
 <hr>
+</div>

@@ -26,20 +26,35 @@ body.container-fluid{
   }
 
 .dad-navbar{
-border-bottom: 1px solid black;
+
 background-color: white;
 }
 
 
-a.navbar-brand {
+a.navbar-brand{
   color: black;
-  font-size: 2.2em;
+  &:hover {
+         color: black;
+       }
+  font-size: 2em;
   line-height: 18px;
   font-weight: 700;
   
   
 }
 
+.navbar-nav>li>a{
+
+  color: black;
+    &:hover {
+         color: rgb(0, 136, 255);
+       }
+  font-size: 1em;
+  line-height: 18px;
+  font-weight: 700;
+  
+
+}
 
 
  .dropdown-menu{
@@ -88,7 +103,7 @@ font-family: 'Michroma', sans-serif;
 }
 
 .feed_post {
-    border: 1px solid black;
+    
     background: white;
     width: 32.15%; 
     height: 337px;
@@ -109,6 +124,7 @@ span.glyphicon.glyphicon-cog{
   width: 20px;
   
 }
+
 h1.jumbotron{
   background-color: white;
 }

@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     end
 
     def show
-        @posts = Post.all.order('created_at DESC')
+        @posts = Post.all.shuffle
         @post = Post.find(params[:id])
         @comment = Comment.new
     end

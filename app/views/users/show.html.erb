@@ -116,7 +116,7 @@
 <h4 class = "more_music">More Music &nbsp;&nbsp;<small>(scroll)</small></h4>
 <div class="comment_feed_row">
     <% if @posts.count > 0 %>
-    <% @posts.each do |post| %>
+    <% @posts.shuffle.each do |post| %>
       
         <div class="comment_feed_post">
                         

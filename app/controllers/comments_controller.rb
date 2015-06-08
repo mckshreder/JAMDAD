@@ -11,10 +11,10 @@ class CommentsController < ApplicationController
             post.save
             current_user.comments.push comment
             current_user.save
-            redirect_to posts_path
+            redirect_to post_path(id: post.id)
         else
             flash["alert-warning"] = "Sorry, comment not created"
-            redirect_to posts_path
+            redirect_to post_path(id: post.id)
         end
     end
 

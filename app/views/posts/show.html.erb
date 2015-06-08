@@ -34,20 +34,63 @@
 
 <div class = "video-container">
         <div class = "video-nav">
-                <p><%= link_to "Return to All Posts",  posts_path, :class => "title_link" %>
+            <div>
+                <span>Posted by: 
+                <%= link_to @post.user.name ,  user_profile_path(@post.user_id), :class => "title_link" %>
+                </span>
 
-                <span class = "title_link_right">Posted by: <%= @post.user.name + "  " + @post.body%><small><%= @post.updated_at%></small>
-                </span> 
-                </p>
+                <small class = "title_link_right"><span class="glyphicon glyphicon-time" aria-hidden="false"></span><%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, @post.updated_at)) + " ago"  %></small>
+                
+            </div>
+        
+
+        <div class = "video-comment-form">
+                        
+            <%= form_for @comment, url: create_comment_path do |f| %>
+                <%= hidden_field_tag :post_id, @post.id %>
+                    <div class="form-group">
+                        <%= f.label :body, "Comment" %>
+                        <%= f.text_area :body, class: "form-control" %>
+                    </div>
+                <%= f.submit "Add Comment", class: "submit-button" %>
+            <% end %>
+            </div>
+
+            <div class="video-comments-container">
+                <h4>Comments</h4>
+                <% if @post.comments.count > 0 %>
+                    <% @post.comments.each do |comment| %>
+                        
+                           
+                                <p><%= comment.body %></p> <%= link_to 'Destroy this comment', delete_comment_path(comment), :class => "title_link_right", method: :delete, data: { confirm: 'Are you sure?' } %>
+                                <h5><%= comment.user.name %>&nbsp;&nbsp;<small><%= comment.updated_at %></small></h5>
+                            
+                        
+                    <% end %>
+                <% else %>
+            <p>No Comments Yet</p>
+        <% end %>
+        
+        </div>
+
+      </div>      
+            <div class = "video-return-delete-box">
+                <%= link_to "Return to All Posts",  posts_path, :class => "title_link" %>
+
+                <%= link_to 'Destroy this post', @post, :class => "title_link_right", method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %>
+            </div>
         </div>  
         
 </div>
 
            
             <div class="artist-link">
+            <%= link_to "Return to All Posts",  posts_path, :class => "title_link" %>
+
             <%= link_to 'Destroy this post', @post, :class => "title_link_right", method: :delete, data: { confirm: 'Are you sure you want to delete this post?' } %>
                 
                 <p>Posted by: <%= @post.user.name + "  " + @post.body%> <small><%= @post.updated_at%></small></p>
+                <%=@post.body%>
             </div>
             <div class="comments-tag-on-feed">
                 <h4>Comments</h4>

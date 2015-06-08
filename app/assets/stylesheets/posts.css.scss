@@ -14,16 +14,19 @@
   font-size: 17px;
   line-height: 18px;
   font-weight: 700;
-  padding-left: 10px; 
+  padding-left: 10px;
+
 
 }
 .title_link_right{
+  
   color: black;
   	&:hover {
          color: #337ab7;
        }
   text-align: right;
   float: right;
+
 
 }
 
@@ -58,21 +61,23 @@ hr.line-break {
 .post-photo-tag{
   width: 300px;
   height: 25px;
-  font-size: 10px;
+  font-size: 12px;
   z-index: 999;
   position: absolute;
   text-shadow: 0 0 2px black;
+  padding-left: 4.2px;
+  padding-top: 2px;
   color:white;
     &:hover {
          color: #337ab7;
        };
-  padding-left: 3px;
-  padding-top: 3px;
+  
 }
 
 .user-post-photo_tag{
   border-radius: 12px;
-  border: 1px solid white;
+  border: 1px solid rgb(0, 136, 255);
+
 
 }
 
@@ -94,6 +99,7 @@ hr.line-break {
     &:hover {
          color: #337ab7;
        }
+  display: inline-block;
 
 }
 
@@ -113,6 +119,7 @@ hr.line-break {
   vertical-align: center;
   margin-left: 15%;
   margin-top: 10px;
+
 
 }
 
@@ -153,15 +160,17 @@ hr.line-break {
 
 }
 
-
+.video-return-delete-box{
+  border-top: 2px solid black;
+  margin-top: 10px;
+}
 
 
 .video-nav{
-  border-bottom: 1px solid #eee;
+
+width: 100%;
 
 
-padding-right: 10px; 
-padding-left:10px;
 
 
 }
@@ -201,10 +210,45 @@ padding-left:10px;
 
 
 .video-comments-container{
-  width:25%;
+  height: 100%;
+  overflow-y: auto;
+  font-size: 9px;
+  background-color: white;
+ 
+  padding-left: 10px;
+  padding-top: 3px; 
+  color:rgb(0, 136, 255);
+    &:hover {
+         color: #337ab7;
+       }
+  display: inline-block;
+
  
   
 }
+
+.video-comment-form{
+  width:50%;
+  height: 10%;
+  display: inline-block;
+  }
+
+
+.submit-button{
+  border:none;
+  border-bottom: 1.2px solid black;
+  background-color: white;
+ text-align: right;
+  color:black;
+    &:hover {
+         color: #337ab7;
+       }
+
+}
+
+ div.form_group{
+  text-align: left;
+ }
 
 @media screen and (max-width: 568px) {
   .video-title-link {

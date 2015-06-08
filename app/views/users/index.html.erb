@@ -1,27 +1,33 @@
-<h1 class="jumbotron">All DadMusic Users</h1>
 
-<%= link_to "Add New User", new_user_path %>
-&nbsp;&nbsp;|&nbsp;&nbsp;
-<% if current_user %>
-    <%= link_to "Logout", destroy_session_path %>
-<% else %>    
-    <%= link_to "Login", new_session_path %>
-<% end %>
-<hr>
+<h1 class="jumbotron">All the Dads</h1>
+
+
 
 <% flash.each do |key, value| %>
     <div class="alert <%= key %>"><%= value %></div>
 <% end %>
 
+
 <% if @users.count > 0 %>
     <% @users.each do |user| %>
-        <h4><%= user.name %><br>
-        <small><%= user.email %></small>
-        </h4>
-        <hr>
+        
+    <div class = "video-info-container-header-top">    
+            
+    
+    
+           
+              <h4 class="video-title-link"><%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user-profile-photo_tag") %><%= "  " %><%= link_to user.name, user_profile_path(user) %></h4> 
+               
+            
+          
+                <h4 class="video-email-link"><%= user.email %></h4> 
+            
+        
+   
+</div>
     <% end %>
 <% else %>
     <h3>No Users Exist</h3>
     <hr>
 <% end %>
-<hr>
+

@@ -1,5 +1,6 @@
-<h1 class="jumbotron">Enter New Post</h1>
 
+<div class = "video-container-create">
+<h1 class="jumbotron">Create New Post</h1>
 <% flash.each do |key, value| %>
     <h4><%= value %></h4>
 <% end %>
@@ -26,6 +27,8 @@
     <%= f.text_area :body, class: "form-control" %>
     </div>
 
-    <%= f.submit "Post", class: "btn btn-primary" %>
+    <%= f.submit "Post", class: "submit-button-create" %>
 
 <% end %>
+
+</div>

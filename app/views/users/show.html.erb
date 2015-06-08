@@ -1,25 +1,29 @@
-<div class="row">
-<div class="col-xs-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
+
+
+                    
+
+
+<div class = "video-container">
+<div class = "video-info-container-header-top">
+        
+            
     
     <%= form_for @user, url: user_profile_path  do |f| %>
-
-              <h4><%= @user.name %></h4> 
+           
+              <h4 class="video-title-link"><%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user-profile-photo_tag") %><%= "  " %><%= @user.name %></h4> 
                
-            </div>
-            <div class="panel-body">
-                <p><%= @user.email %></p> 
-            </div>
+            
+          
+                <h4 class="video-email-link"><%= @user.email %></h4> 
+            
         <% end %>
-    </div>
+   
 </div>
-  </div>  
 
 
 <% @posts.each do |post| %>
     
-    <div class = "video-container">
+    
           
         <div class="embed-responsive embed-responsive-16by9"><%= embed(post.url) %>
         </div>
@@ -143,11 +147,13 @@
 
 
 
-</div> 
+
 
 
 <% else %>
     <h2>No Posts Exist</h2>
 <% end %>
+<hr>
     <% end %>
+    </div> 
 

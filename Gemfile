@@ -32,6 +32,22 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
+
+  gem 'shoulda-matchers', require: false
+
+  gem 'capybara'
+
+  gem 'factory_girl_rails'
+
+  #ADD IN simplecov gem
+  gem 'simplecov', :require => false
+end
+
+
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

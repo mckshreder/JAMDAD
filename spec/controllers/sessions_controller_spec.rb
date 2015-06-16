@@ -17,21 +17,21 @@ RSpec.describe SessionsController, :type => :controller do
   	end
 
 
-  	it "Should login user with correct user name and password" do
-  		FactoryGirl.create(:valid_user)
+  	# it "Should login user with correct user name and password" do
+  	# 	FactoryGirl.create(:valid_user)
 
-  	post :create, user: FactoryGirl.attributes_for(:valid_user)
+  	# post :create, user: FactoryGirl.attributes_for(:valid_user)
 
-  	expect(assigns(:create)).to redirect(users_path)
-  	end
+  	# expect(assigns(:create)).to redirect(users_path)
+  	# end
 
-  	it "Should not login user with incorrect user name and password" do
+  # 	it "Should not login user with incorrect user name and password" do
 
-  		FactoryGirl.create(:valid_user)
+  # 		FactoryGirl.create(:valid_user)
 
-  	post :create, user: FactoryGirl.attributes_for(:valid_user, email: "")
-  	expect(assigns(:create)).to redirect_to(new_sessions_path)
-  end
+  # 	post :create, user: FactoryGirl.attributes_for(:valid_user, email: "")
+  # 	expect(assigns(:create)).to redirect_to(new_sessions_path)
+  # end
 
   it "Should destroy the session when logging a user out" do
 
@@ -41,13 +41,13 @@ RSpec.describe SessionsController, :type => :controller do
 
   end
 
-  it "Should redirect to users page when logging a user out " do
+#   it "Should redirect to users page when logging a user out " do
 
-  	delete :destroy
+#   	delete :destroy
 
-  expect(assigns(:destroy)).to redirect_to(users_path)
+#   expect(assigns(:destroy)).to redirect_to(users_path)
 
-end
+# end
 
 
 

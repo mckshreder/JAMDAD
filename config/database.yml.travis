@@ -57,14 +57,14 @@ development:
 # Do not set this db to the same as development or production.
 
 #comment this back to test r spec " bundle exec rspec" in command line
-test:
-  <<: *default
-  database: blog_with_comments_test
-
 # test:
-#   adapter: postgresql
-#   database: travis_ci_test
-#   username: postgres
+#   <<: *default
+#   database: blog_with_comments_test
+
+test:
+  adapter: postgresql
+  database: travis_ci_test
+  username: postgres
 
 
 # As with config/secrets.yml, you never want to store sensitive information,

@@ -7,8 +7,8 @@ branches:
 install:
 - travis_retry bundle install
 before_script:
-- psql -c 'create database travis_ci_test;' -U postgres
-- cp config/database.yml.travis config/database.yml
+- psql -c 'create database blog_with_comments_test;' -U postgres
+
 deploy:
   provider: heroku
   api_key:

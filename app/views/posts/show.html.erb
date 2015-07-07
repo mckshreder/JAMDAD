@@ -1,17 +1,5 @@
 
 
-
-
-
-
-         
-            
-
-
-
-
-
-
 <div class = "video-container">
           
         <div class="embed-responsive embed-responsive-16by9"><%= embed(@post.url) %>
@@ -54,7 +42,7 @@
                     <% @post.comments.each do |comment| %>
                         
                         <div class = "comment-user-name-tag">
-                                <%= link_to @post.user.name ,  user_profile_path(@post.user_id)%>
+                                <%= link_to comment.user.name ,  user_profile_path(comment.user_id)%>
                         </div>
 
                             <div class= "comment-time-ago-tag">                        
@@ -62,7 +50,7 @@
                             </div>
 
 
-                                <hr class = "comment-line-break-top">
+                <hr class = "comment-line-break-top">
                                 
                         <div class= "comment-photo">
                             <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 21, :height => 21, :crop => :fill, class: "comment-user-post-photo_tag") %>

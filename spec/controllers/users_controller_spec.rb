@@ -6,6 +6,9 @@ RSpec.describe UsersController, :type => :controller do
 
 	get :index
 
+	#staus code returned should be 200 for success
+    expect(response).to have_http_status(:success)
+
 	expect(response).to render_template(:index)	
 	end
 

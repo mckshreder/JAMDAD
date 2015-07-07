@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
+# Figaro was written to make it easy to securely configure Rails applications.
 gem 'figaro'
 
 gem 'pry'
-
+#pagination
 gem 'kaminari'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -34,6 +35,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 
 group :development, :test do
+  # this brakeman is to catch potetial hacker routes
+  gem 'brakeman', :require => false
+  # this one is for rspec testing
   gem 'rspec-rails', '~> 3.0.0'
 
   gem 'shoulda-matchers', require: false
@@ -41,6 +45,8 @@ group :development, :test do
   gem 'capybara'
 
   gem 'factory_girl_rails'
+
+  gem 'rack_session_access'
 
   #ADD IN simplecov gem
   gem 'simplecov', :require => false
